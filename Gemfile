@@ -57,3 +57,9 @@ group :development do
   # gem "spring"
 end
 
+# JSON API Serializer
+gem 'jsonapi-serializer'
+
+# for API consumption
+gem 'faraday'
+

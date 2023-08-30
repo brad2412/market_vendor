@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   namespace :api do
     namespace :v0 do
-      get 'markets/index'
+      resources :markets, only: [:index] do
+        
+      end
     end
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
