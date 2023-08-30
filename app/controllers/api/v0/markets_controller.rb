@@ -9,7 +9,7 @@ class Api::V0::MarketsController < ApplicationController
       render json: MarketSerializer.new(@market)
     else
       error_message = "Market not found"
-      render json: ErrorSerializer.serialize(error_message)
+      render json: ErrorSerializer.serialize(error_message), status: 404
     end
   end
 end
