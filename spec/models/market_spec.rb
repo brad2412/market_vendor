@@ -7,7 +7,7 @@ RSpec.describe Market, type: :model do
   end
 
   describe "instance methods" do
-    it "returns the count of vendors for a market" do
+    it "should show the count of vendors associated with markets" do
       market1 = create(:market)
       vendors = create_list(:vendor, 3)
 
