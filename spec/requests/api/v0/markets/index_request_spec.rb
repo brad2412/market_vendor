@@ -1,11 +1,11 @@
-require 'rails_helper'
+require "rails_helper"
 
-describe 'Markets API' do
-  describe 'Get all Markets' do
-    it 'returns all markets and vendor count' do
+describe "Markets API" do
+  describe "Get all Markets" do
+    it "returns all markets and vendor count" do
       create_list(:market, 3)
 
-      get '/api/v0/markets'
+      get "/api/v0/markets"
 
       expect(response).to be_successful
 
@@ -22,7 +22,7 @@ describe 'Markets API' do
         expect(market[:id]).to be_a(String)
 
         expect(market).to have_key(:type)
-        expect(market[:type]).to eq('market')
+        expect(market[:type]).to eq("market")
 
         expect(market).to have_key(:attributes)
         expect(market[:attributes]).to be_a(Hash)
@@ -56,6 +56,25 @@ describe 'Markets API' do
         expect(attributes).to have_key(:vendor_count)
         expect(attributes[:vendor_count]).to be_an(Integer)
       end
+    end
+  end
+
+  xdescribe "when a market is not found" do
+    it "returns an error message and a 404 status code" do
+      false_id = 123123123123 
+      get "/api/v0/markets/#{false_id}"
+
+      expect(response).not_to be_successful
+      expect(response.status).to eq(404)
+
+      data = JSON.parse(response.body, symbolize_names: true)
+
+      expect(data).to have_key(:errors)
+
+      errors = data[:errors]
+
+      expect(errors).to be_an(Array)
+      expect(errors.first[:detail]).to eq("Market not found")
     end
   end
 end
