@@ -1,9 +1,9 @@
 class Api::V0::MarketVendorsController < ApplicationController
   def create
     MarketVendor.create!(market_vendor_params)
-    render_success_response
+    success_message
   rescue ActiveRecord::RecordInvalid => error
-    handle_error_response(error, market_vendor_params)
+    fail_message(error, market_vendor_params)
   end
 
   def destroy
@@ -11,7 +11,7 @@ class Api::V0::MarketVendorsController < ApplicationController
     if !market_vendor.nil?
       market_vendor.destroy
     else
-      render_no_market_vendor_response(market_vendor_params)
+      no_market_vendor(market_vendor_params)
     end
   end
 
@@ -21,25 +21,25 @@ class Api::V0::MarketVendorsController < ApplicationController
     params.require(:market_vendor).permit(:market_id, :vendor_id)
   end
 
-  def render_success_response
+  def success_message
     render json: { "message": 'Successfully added vendor to market' }, status: :created
   end
 
-  def handle_error_response(error, params)
+  def fail_message(error, params)
     if params.empty?
       render_invalid_response(error)
     elsif MarketVendor.find_by(params)
-      render_association_exists_response(error)
+      already_exists(error)
     else
       render_not_found_response(error)
     end
   end
 
-  def render_association_exists_response(error)
+  def already_exists(error)
     render json: ErrorSerializer.serialize(error), status: :unprocessable_entity
   end
 
-  def render_no_market_vendor_response(params)
+  def no_market_vendor(params)
     message = "No MarketVendor with market_id=#{params[:market_id]} AND vendor_id=#{params[:vendor_id]} exists"
     render json: ErrorSerializer.serialize(message), status: :not_found
   end
