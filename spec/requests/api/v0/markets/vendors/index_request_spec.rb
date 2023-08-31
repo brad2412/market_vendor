@@ -53,8 +53,8 @@ describe "Markets API" do
       end
     end
 
-    xdescribe "sad path" do
-      it "returns error if market does not exist" do
+    describe "test for sad paths" do
+      it "should have an error if there isn't a market" do
         false_id = 123123123123
         get "/api/v0/markets/#{false_id}/vendors"
 
