@@ -73,6 +73,11 @@
           null
         ]
       },
+      "/Users/bam/turing/3mod/projects/market_money/spec/requests/api/v0/market_vendors/create_request_spec.rb": {
+        "lines": [
+
+        ]
+      },
       "/Users/bam/turing/3mod/projects/market_money/spec/requests/api/v0/markets/index_request_spec.rb": {
         "lines": [
           1,
@@ -572,6 +577,6 @@
         ]
       }
     },
-    "timestamp": 1693523238
+    "timestamp": 1693523635
   }
 }

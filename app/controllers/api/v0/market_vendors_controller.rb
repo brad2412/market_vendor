@@ -22,7 +22,7 @@ class Api::V0::MarketVendorsController < ApplicationController
   end
 
   def render_success_response
-    render json: { "message": 'Successfully added vendor to market' }, status: 201
+    render json: { "message": 'Successfully added vendor to market' }, status: :created
   end
 
   def handle_error_response(error, params)
@@ -36,11 +36,11 @@ class Api::V0::MarketVendorsController < ApplicationController
   end
 
   def render_association_exists_response(error)
-    render json: ErrorSerializer.serialize(error), status: 422
+    render json: ErrorSerializer.serialize(error), status: :unprocessable_entity
   end
 
   def render_no_market_vendor_response(params)
     message = "No MarketVendor with market_id=#{params[:market_id]} AND vendor_id=#{params[:vendor_id]} exists"
-    render json: ErrorSerializer.serialize(message), status: 404
+    render json: ErrorSerializer.serialize(message), status: :not_found
   end
 end
