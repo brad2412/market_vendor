@@ -59,6 +59,9 @@
           1,
           1,
           1,
+          null,
+          1,
+          1,
           null
         ]
       },
@@ -206,6 +209,64 @@
           null
         ]
       },
+      "/Users/bam/turing/3mod/projects/market_money/spec/requests/api/v0/vendors/create_request_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          1,
+          null,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          null,
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
       "/Users/bam/turing/3mod/projects/market_money/spec/requests/api/v0/vendors/show_request_spec.rb": {
         "lines": [
           1,
@@ -309,7 +370,7 @@
           null,
           null,
           1,
-          0,
+          1,
           null,
           null,
           null
@@ -352,7 +413,7 @@
           1,
           1,
           null,
-          2,
+          3,
           null,
           null,
           null,
@@ -372,8 +433,8 @@
           null,
           null,
           1,
-          0,
-          0,
+          2,
+          1,
           null,
           null,
           1,
@@ -392,12 +453,12 @@
           null,
           null,
           1,
-          0,
+          2,
           null,
           null
         ]
       }
     },
-    "timestamp": 1693513965
+    "timestamp": 1693518113
   }
 }
