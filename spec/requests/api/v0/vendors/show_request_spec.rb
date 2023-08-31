@@ -1,6 +1,6 @@
 require "rails_helper"
 
-describe "Vendors endpoints" do
+RSpec.describe "Vendors endpoints" do
   describe "User story: Get one Vendor" do
     it "returns a vendor" do
       market1 = create(:market)

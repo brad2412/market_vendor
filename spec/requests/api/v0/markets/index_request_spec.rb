@@ -1,6 +1,6 @@
 require "rails_helper"
 
-describe "Markets endpoints" do
+RSpec.describe "Markets endpoints" do
   describe "User story: Get all Markets" do
     it "returns all markets and vendor count" do
       create_list(:market, 3)
